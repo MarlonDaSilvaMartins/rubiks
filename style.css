@@ -1,6 +1,6 @@
 td{
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
 }
 
 #movementButton{
@@ -17,9 +17,9 @@ td{
 
 #canvas{
     background-color: #E3E3E3;
-    width: 470px;
+    width: 660px;
 }
 
 #upper, #down{
-    margin-left: 117px;
+    margin-left: 162px;
 }
