@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rubik's Cube 2D</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="cube.js"></script>
+</head>
+<body onload="load()">
+    <div id="canvas">
+            <div id="upper">
+                <table>
+                    <tr class="upper">
+                        <td id="U1"></td>
+                        <td id="U2"></td>
+                        <td id="U3"></td>
+                    </tr>
+                    <tr class="upper">
+                        <td id="U4"></td>
+                        <td id="U5"></td>
+                        <td id="U6"></td>
+                    </tr>
+                    <tr class="upper">
+                        <td id="U7"></td>
+                        <td id="U8"></td>
+                        <td id="U9"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="middle">
+                <table>
+                    <tr>
+                        <div id="left">
+                            <td id="L1"></td>
+                            <td id="L2"></td>
+                            <td id="L3"></td>
+                        </div>
+                        <div id="front">
+                            <td id="F1"></td>
+                            <td id="F2"></td>
+                            <td id="F3"></td>
+                        </div>
+                        <div id="right">
+                            <td id="R1"></td>
+                            <td id="R2"></td>
+                            <td id="R3"></td>
+                        </div>
+                        <div id="back">
+                            <td id="B1"></td>
+                            <td id="B2"></td>
+                            <td id="B3"></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="left">
+                            <td id="L4"></td>
+                            <td id="L5"></td>
+                            <td id="L6"></td>
+                        </div>
+                        <div id="front">
+                            <td id="F4"></td>
+                            <td id="F5"></td>
+                            <td id="F6"></td>
+                        </div>
+                        <div id="right">
+                            <td id="R4"></td>
+                            <td id="R5"></td>
+                            <td id="R6"></td>
+                        </div>
+                        <div id="back">
+                            <td id="B4"></td>
+                            <td id="B5"></td>
+                            <td id="B6"></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="left">
+                            <td id="L7"></td>
+                            <td id="L8"></td>
+                            <td id="L9"></td>
+                        </div>
+                        <div id="front">
+                            <td id="F7"></td>
+                            <td id="F8"></td>
+                            <td id="F9"></td>
+                        </div>
+                        <div id="right">
+                            <td id="R7"></td>
+                            <td id="R8"></td>
+                            <td id="R9"></td>
+                        </div>
+                        <div id="back">
+                            <td id="B7"></td>
+                            <td id="B8"></td>
+                            <td id="B9"></td>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+            <div id="down">
+                <table>
+                    <tr>
+                        <td id="D1"></td>
+                        <td id="D2"></td>
+                        <td id="D3"></td>
+                    </tr>
+                    <tr>
+                        <td id="D4"></td>
+                        <td id="D5"></td>
+                        <td id="D6"></td>
+                    </tr>
+                    <tr>
+                        <td id="D7"></td>
+                        <td id="D8"></td>
+                        <td id="D9"></td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+    <button id="movementButton" onclick="uMove()">U</button>
+    <button id="movementButton" onclick="lMove()">L</button>
+    <button id="movementButton" onclick="fMove()">F</button>
+    <button id="movementButton" onclick="rMove()">R</button>
+    <button id="movementButton" onclick="bMove()">B</button>
+    <button id="movementButton" onclick="dMove()">D</button><br>
+    <button id="movementButton" onclick="invertedUMove()">'U</button>
+    <button id="movementButton" onclick="invertedLMove()">'L</button>
+    <button id="movementButton" onclick="invertedFMove()">'F</button>
+    <button id="movementButton" onclick="invertedRMove()">'R</button>
+    <button id="movementButton" onclick="invertedBMove()">'B</button>
+    <button id="movementButton" onclick="invertedDMove()">'D</button><br>
+
+    <button id="resolveButton">Resolver Cubo</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+td{
+    width: 35px;
+    height: 35px;
+}
+
+#movementButton{
+    width: 40px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#resolveButton{
+    width: 100px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+#canvas{
+    background-color: #E3E3E3;
+    width: 470px;
+}
+
+#upper, #down{
+    margin-left: 117px;
+}

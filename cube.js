@@ -1,76 +1,110 @@
-const faceU = ["G","G","G","G","G","G","G","G","G"];
-const faceL = ["R","R","R","R","R","R","R","R","R"];
-const faceF = ["W","W","W","W","W","W","W","W","W"];
-const faceR = ["O","O","O","O","O","O","O","O","O"];
-const faceB = ["Y","Y","Y","Y","Y","Y","Y","Y","Y"];
-const faceD = ["B","B","B","B","B","B","B","B","B"];
+const faceU = ["green","green","green","green","green","green","green","green","green"];
+const faceL = ["red","red","red","red","red","red","red","red","red"];
+const faceF = ["white","white","white","white","white","white","white","white","white"];
+const faceR = ["orange","orange","orange","orange","orange","orange","orange","orange","orange"];
+const faceB = ["yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow"];
+const faceD = ["blue","blue","blue","blue","blue","blue","blue","blue","blue"];
 
 const moves = ['U', 'L', 'F', 'R', 'B', 'D'];
 const invertMoves = ['U\'', 'L\'', 'F\'', 'R\'', 'B\'', 'D\''];
 
+function load(){
+    faceU.forEach((color, index) => {
+        document.getElementById("U"+(index+1)).style.backgroundColor = color
+    });
+    faceL.forEach((color, index) => {
+        document.getElementById("L"+(index+1)).style.backgroundColor = color
+    });
+    faceF.forEach((color, index) => {
+        document.getElementById("F"+(index+1)).style.backgroundColor = color
+    });
+    faceR.forEach((color, index) => {
+        document.getElementById("R"+(index+1)).style.backgroundColor = color
+    });
+    faceB.forEach((color, index) => {
+        document.getElementById("B"+(index+1)).style.backgroundColor = color
+    });
+    faceD.forEach((color, index) => {
+        document.getElementById("D"+(index+1)).style.backgroundColor = color
+    });
+};
+
 function uMove(){
     movement(faceU);
     sideMovement("U", faceB, faceR, faceF, faceL);
+    load();
 }
 
 function lMove(){
     movement(faceL);
     sideMovement("L", faceU, faceF, faceD, faceB);
+    load();
 }
 
 function fMove(){
     movement(faceF);
     sideMovement("F", faceU, faceR, faceD, faceL);
+    load();
 }
 
 function rMove(){
     movement(faceR);
     sideMovement("R", faceU, faceB, faceD, faceF);
+    load();
 }
 
 function bMove(){
     movement(faceB);
     sideMovement("B", faceU, faceL, faceD, faceR);
+    load();
 }
 
 function dMove(){
     movement(faceD);
     sideMovement("D", faceF, faceR, faceB, faceL);
+    load();
 }
 
 function invertedFMove(){
     invertedMovement(faceF);
     invertedSideMovement("F", faceU, faceR, faceD, faceL);
+    load();
 }
 
 function invertedUMove(){
     invertedMovement(faceU);
     invertedSideMovement("U", faceB, faceR, faceF, faceL);
+    load();
 }
 
 function invertedLMove(){
     invertedMovement(faceL);
     invertedSideMovement("L", faceU, faceF, faceD, faceB);
+    load();
 }
 
 function invertedFMove(){
     invertedMovement(faceF);
     invertedSideMovement("F", faceU, faceR, faceD, faceL);
+    load();
 }
 
 function invertedRMove(){
     invertedMovement(faceR);
     invertedSideMovement("R", faceU, faceB, faceD, faceF);
+    load();
 }
 
 function invertedBMove(){
     invertedMovement(faceB);
     invertedSideMovement("B", faceU, faceL, faceD, faceR);
+    load();
 }
 
 function invertedDMove(){
     invertedMovement(faceD);
     invertedSideMovement("D", faceF, faceR, faceB, faceL);
+    load();
 }
 
 function movement(face){
@@ -88,7 +122,7 @@ function movement(face){
 }
 
 function sideMovement(movement, face1, face2, face3, face4){
-    let save = face1;
+    let save = face1.slice();
     if (movement === "F") {
         face1[6] = face4[8];
         face1[7] = face4[5];
@@ -204,7 +238,7 @@ function invertedMovement(face){
 
 
 function invertedSideMovement(movement, face1, face2, face3, face4){
-    let save = face1;
+    let save = face1.slice();
     if (movement === "F") {
         face1[6] = face2[0];
         face1[7] = face2[3];
@@ -249,7 +283,7 @@ function invertedSideMovement(movement, face1, face2, face3, face4){
     
         face3[8] = face4[2];
         face3[7] = face4[5];
-        face3[6] = face4[6];
+        face3[6] = face4[8];
 
         face4[2] = save[0];
         face4[5] = save[1];
