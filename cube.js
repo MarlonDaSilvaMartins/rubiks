@@ -1,9 +1,9 @@
-const faceU = ["green","green","green","green","green","green","green","green","green"];
-const faceL = ["red","red","red","red","red","red","red","red","red"];
+const faceU = ["red","red","red","red","red","red","red","red","red"];
+const faceL = ["blue","blue","blue","blue","blue","blue","blue","blue","blue"];
 const faceF = ["white","white","white","white","white","white","white","white","white"];
-const faceR = ["orange","orange","orange","orange","orange","orange","orange","orange","orange"];
+const faceR = ["green","green","green","green","green","green","green","green","green"];
 const faceB = ["yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow"];
-const faceD = ["blue","blue","blue","blue","blue","blue","blue","blue","blue"];
+const faceD = ["orange","orange","orange","orange","orange","orange","orange","orange","orange"];
 
 const moves = ['U', 'L', 'F', 'R', 'B', 'D'];
 const invertMoves = ['U\'', 'L\'', 'F\'', 'R\'', 'B\'', 'D\''];
