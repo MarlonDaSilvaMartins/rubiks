@@ -7,6 +7,7 @@ const faceD = ["orange","orange","orange","orange","orange","orange","orange","o
 
 const moves = ['U', 'L', 'F', 'R', 'B', 'D'];
 const invertMoves = ['U\'', 'L\'', 'F\'', 'R\'', 'B\'', 'D\''];
+const allMoves = ['U', 'L', 'F', 'R', 'B', 'D', 'U\'', 'L\'', 'F\'', 'R\'', 'B\'', 'D\''];
 
 function load(){
     faceU.forEach((color, index) => {
@@ -336,5 +337,61 @@ function invertedSideMovement(movement, face1, face2, face3, face4){
         face4[6] = save[6];
         face4[7] = save[7];
         face4[8] = save[8];
+    }
+}
+
+function random(){
+    let move1 = allMoves[parseInt(Math.random() * 12)];
+    let move2 = allMoves[parseInt(Math.random() * 12)];
+    let move3 = allMoves[parseInt(Math.random() * 12)];
+    let move4 = allMoves[parseInt(Math.random() * 12)];
+    let move5 = allMoves[parseInt(Math.random() * 12)];
+    let move6 = allMoves[parseInt(Math.random() * 12)];
+    move(move1);
+    move(move2);
+    move(move3);
+    move(move4);
+    move(move5);
+    move(move6);
+}
+
+function move(movement){
+    switch (movement){
+        case 'U':
+            uMove();
+            break;
+        case 'L':
+            lMove();
+            break;
+        case 'F':
+            fMove();
+            break;
+        case 'R':
+            rMove();
+            break;
+        case 'B':
+            bMove();
+            break;
+        case 'D':
+            dMove();
+            break;
+        case 'U\'':
+            invertedUMove();
+            break;
+        case 'L\'':
+            invertedLMove();
+            break;
+        case 'F\'':
+            invertedFMove();
+            break;
+        case 'R\'':
+            invertedRMove();
+            break;
+        case 'B\'':
+            invertedBMove();
+            break;
+        case 'D\'':
+            invertedDMove();
+            break;
     }
 }
