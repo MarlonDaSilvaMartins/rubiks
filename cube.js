@@ -355,6 +355,53 @@ function random(){
     move(move6);
 }
 
+function solve(){
+    let cube = phaseOne();
+    console.log(cube);
+    //fazer a segunda fase, que devolve os movimentos para resolver
+    //fazer função para interpretar os movimentos
+}
+
+function colorToFace(color){
+    switch (color){
+        case 'red':
+            return 'U';
+        case 'blue':
+            return 'L';
+        case 'white':
+            return 'F';
+        case 'green':
+            return 'R';
+        case 'yellow':
+            return 'B';
+        case 'orange':
+            return 'D';
+    }
+}
+
+function phaseOne(){
+    cube = '';
+    faceU.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    faceL.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    faceF.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    faceR.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    faceB.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    faceD.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    return cube;
+}
+
 function move(movement){
     switch (movement){
         case 'U':
