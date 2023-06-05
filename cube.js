@@ -355,11 +355,24 @@ function random(){
     move(move6);
 }
 
-function solve(){
+function solveCube(){
     let cube = phaseOne();
     console.log(cube);
-    //fazer a segunda fase, que devolve os movimentos para resolver
-    //fazer função para interpretar os movimentos
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "Access-Control-Allow-Origin": "*",
+        "url": "http://localhost:3000/index?cube="+cube,
+        "method": "GET"
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response.solution);
+        document.getElementById("solution").innerHTML = response.solution;
+        readResult(response.solution);
+    });
+
 }
 
 function colorToFace(color){
@@ -384,22 +397,174 @@ function phaseOne(){
     faceU.forEach((color) => {
         cube += colorToFace(color);
     });
-    faceL.forEach((color) => {
+    faceR.forEach((color) => {
         cube += colorToFace(color);
     });
     faceF.forEach((color) => {
         cube += colorToFace(color);
     });
-    faceR.forEach((color) => {
+    faceD.forEach((color) => {
+        cube += colorToFace(color);
+    });
+    faceL.forEach((color) => {
         cube += colorToFace(color);
     });
     faceB.forEach((color) => {
         cube += colorToFace(color);
     });
-    faceD.forEach((color) => {
-        cube += colorToFace(color);
-    });
     return cube;
+}
+
+function readResult(result){
+    let moves = result.split(' ');
+    console.log(moves);
+    moves.forEach((move, i) => { 
+        setTimeout(() => {
+            resultMovement(move);
+        }, 1000 * i);
+    })
+}
+
+function resultMovement(move) {
+        switch (move){
+            case 'U':
+                uMove();    
+                load();
+                break;
+            case 'L':
+                lMove();    
+                load();
+                break;
+            case 'F':
+                fMove();    
+                load();
+                break;
+            case 'R':
+                rMove();    
+                load();
+                break;
+            case 'B':
+                bMove();    
+                load();
+                break;
+            case 'D':
+                dMove();    
+                load();
+                break;
+            case 'U\'':
+                invertedUMove();    
+                load();
+                break;
+            case 'L\'':
+                invertedLMove();    
+                load();
+                break;
+            case 'F\'':
+                invertedFMove();    
+                load();
+                break;
+            case 'R\'':
+                invertedRMove();    
+                load();
+                break;
+            case 'B\'':
+                invertedBMove();    
+                load();
+                break;
+            case 'D\'':
+                invertedDMove();    
+                load();
+                break;
+            case 'U2':
+                uMove();  
+                load();
+                uMove();  
+                load();
+                break;
+            case 'L2':
+                lMove();
+                load();
+                lMove();
+                load();
+                break;
+            case 'F2':
+                fMove();
+                load();
+                fMove();
+                load();
+                break;
+            case 'R2':
+                rMove();
+                load();
+                rMove();
+                load();
+                break;
+            case 'B2':
+                bMove();
+                load();
+                bMove();
+                load();
+                break;
+            case 'D2':
+                dMove();
+                load();
+                dMove();
+                load();
+                break;
+            case 'U\'2':
+                invertedUMove();
+                load();
+                invertedUMove();
+                load();
+                break;
+            case 'L\'2':
+                invertedLMove();
+                load();
+                invertedLMove();
+                load();
+                break;
+            case 'F\'2':
+                invertedFMove();
+                load();
+                invertedFMove();
+                load();
+                break;
+            case 'R\'2':
+                invertedRMove();
+                load();
+                invertedRMove();
+                load();
+                break;
+            case 'B\'2':
+                invertedBMove();
+                load();
+                invertedBMove();
+                load();
+                break;
+            case 'D\'2':
+                invertedDMove();
+                load();
+                invertedDMove();
+                load();
+                break;
+        } 
+  }
+
+function checkSolved(){
+    let faceUSolved = ["red","red","red","red","red","red","red","red","red"];
+    let faceLSolved = ["blue","blue","blue","blue","blue","blue","blue","blue","blue"];
+    let faceFSolved = ["white","white","white","white","white","white","white","white","white"];
+    let faceRSolved = ["green","green","green","green","green","green","green","green","green"];
+    let faceBSolved = ["yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow","yellow"];
+    let faceDSolved = ["orange","orange","orange","orange","orange","orange","orange","orange","orange"];
+
+    if(faceUSolved == faceU,faceLSolved == faceL, faceFSolved == faceF,
+        faceRSolved == faceR,faceBSolved == faceB,faceDSolved == faceD
+        ){
+
+        return true;
+    }
+    return false;
 }
 
 function move(movement){

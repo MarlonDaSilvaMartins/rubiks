@@ -4,6 +4,12 @@
     <title>Rubik's Cube 2D</title>
     
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity=
+        "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous">
+    </script>
     <script src="cube.js"></script>
 </head>
 <body onload="load()">
@@ -131,6 +137,7 @@
     <button id="movementButton" onclick="invertedDMove()">'D</button><br>
 
     <button id="resolveButton" onclick="random()">Embaralhar Cubo</button>
-    <button id="resolveButton">Resolver Cubo</button>
+    <button id="resolveButton" onclick="solveCube()">Resolver Cubo</button><br>
+    <p id="solution"></p>
 </body>
 </html>
